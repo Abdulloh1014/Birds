@@ -1,0 +1,65 @@
+<%- include('includes/header') %>
+
+<link rel="stylesheet" type="text/css" href="/css/login.css" />
+
+<body>
+
+
+  <div class="umumiy">
+
+      <div class="left-frame">
+      </div>
+       
+     <form class="login-container" action="/admin/login" METHOD="POST">
+
+
+    <div class="login-frame">
+      <div class="login-top">
+        <div>Go back <a href="/admin" >
+           <img src="/img/icons8-home.svg" style="width: 40px" height="40px"/>
+        </a></div>
+        <h4>Login</h4>
+        <p>
+          Not registered yet?
+          <a href="/admin/signup">Create an account</a>
+        </p>
+      </div>
+      <div class="login-input-frame">
+        <div class="login-input-container">
+          <label>Name *</label>
+          <input
+            type="text"
+            name="memberNick"
+            class="member-nick"
+            placeholder="Name"
+            value=""
+            required
+          />
+        </div>
+        <div class="login-input-container">
+          <label>Password *</label>
+          <input
+            type="password"
+            name="memberPassword"
+            class="member-password"
+            placeholder="Password"
+            value=""
+            required
+          />
+        </div>
+        
+      </div>
+      <button class="login-btn btn" name="login" type="submit">Login</button>
+    </div>
+     </form>
+
+  </div>
+
+  
+
+
+
+
+</body>
+
+<%- include('includes/footer') %>
