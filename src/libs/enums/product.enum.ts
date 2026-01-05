@@ -20,13 +20,14 @@ export enum ProductStatus {
 }
 
 export enum ProductCollection {
-  PARROTS = "PARROTS",       // To'ti
+  PARROT = "PARROT",       // To'ti
   CANARIES = "CANARIES",     // Kanareka
   PIGEONS = "PIGEONS",       // Kaptar
   QUAILS = "QUAILS",         // Bedana
   PHEASANTS = "PHEASANTS",   // Fazan
   PEACOCKS = "PEACOCKS",     // Tovus
-  EXOTIC_BIRDS = "EXOTIC_BIRDS",
+  EXOTIC = "EXOTIC",
+  CAGE = "CAGE",   // Qush qafasi
 }
 
 export enum BirdAge {

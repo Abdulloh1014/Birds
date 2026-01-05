@@ -28,17 +28,17 @@ routerAdmin
   /** Product */
 
 routerAdmin.get("/product/all", 
-  founderController.verifyRestaurant,    
+  founderController.verifyFounder,    
   productController.getAllProducts);
 
 routerAdmin.post("/product/create", 
-  founderController.verifyRestaurant, 
+  founderController.verifyFounder, 
   // uploadProductImage.single('productImage'),
   makeUploader("products").array("productImages", 5,),
   productController.createNewProduct);
 
 routerAdmin.post("/product/:id", 
-  founderController.verifyRestaurant,
+  founderController.verifyFounder,
   productController.updateChosenProduct);
 
 
@@ -46,12 +46,12 @@ routerAdmin.post("/product/:id",
 /** User */
 
 routerAdmin.get("/user/all", 
-  founderController.verifyRestaurant, 
+  founderController.verifyFounder, 
   founderController.getUsers
 );
 
 routerAdmin.post("/user/edit", 
-  founderController.verifyRestaurant, 
+  founderController.verifyFounder, 
   founderController.updateChosenUser
 );
 

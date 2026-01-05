@@ -29,28 +29,33 @@
       <div class="board">
         <div class="dishes-table">
           <span class="new-dish-txt" style="margin-bottom: 30px">
-            PRODUCT  UPLOAD
+            RESTAURANT MENU
           </span>
+
+
           <table class="table table-bordered table-hover">
             <thead class="thead-light">
               <tr class="thead-light">
                 <th scope="col">T/r</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Product Type</th>
-                <th scope="col">Product Bird Age</th>
                 <th scope="col">Product Price</th>
+                <th scope="col">Product Gender</th>
+                <th scope="col">Product Bird Age</th>
                 <th scope="col">Product Left Count</th>
                 <th scope="col">Status</th>
               </tr>
             </thead>
+
+
               <% products.map(function(value, key) { %>
                 <tbody style="background: white">
               <td><%= key + 1 %></td>
               <td><%= value.productName %></td>
               <td><%= value.productCollection %></td>
-              <td><%= value.productCollection === 'DRINK' ? value.productVolume : 
-                value.productSize %></td>
               <td><%= value.productPrice %></td>
+              <td><%= value.productGender %></td>
+              <td><%= value.productBirdAge %></td>
               <td><%= value.productLeftCount %></td>
               <td>
                 <select class="spec-select new-product-status" id="<%= value._id %>">
@@ -62,6 +67,8 @@
             </tbody>
               <% }) %>
           </table>
+
+
           <div
             class="long-input"
             style="align-items: flex-end; margin-bottom: 25px"
@@ -83,6 +90,10 @@
           <div class="long-input" style="display: flex; align-items: center">
             <span class="new-dish-txt">NEW PRODUCT DETAIL</span>
           </div>
+
+
+          
+
           <div class="login-input-frame">
             <div class="long-input">
               <label>Product Name</label>
@@ -100,6 +111,8 @@
               hidden
             />
           </div>
+
+
           <div class="half-input-frame">
             <div class="half-input">
               <label>Product Price</label>
@@ -120,38 +133,48 @@
               />
             </div>
           </div>
+
+
           <div class="half-input-frame">
+
             <div class="half-input">
               <label>Product Type</label>
-              <select class="product-collection" name="productCollection">
-                <option value="DISH" selected>Dish</option>
-                <option value="SALAD">Salad</option>
-                <option value="DESSERT">Dessert</option>
-                <option value="DRINK">Drink</option>
-                <option value="OTHER">Other</option>
+              <select class="product-collection " name="productCollection">
+                <option value="Type" selected disabled hidden>Type</option>
+                <option value="PARROT">Parrot</option>
+                <option value="CANARIES">Canaries</option>
+                <option value="PIGEONS">Pigeons</option>
+                <option value="QUALIS">Qualis</option>
+                <option value="PHEASANTS">Pheasnts</option>
+                <option value="PEACOCKS">Peacocks</option>
+                <option value="EXOTIC">Exotic</option>
+                <option value="CAGE">Cage</option> 
+
               </select>
             </div>
 
             <div class="half-input" id="product-collection">
-              <label>Dish Volume</label>
-              <select class="product-size" name="productSize">
-                <option value="SMALL">Small</option>
-                <option value="NORMAL" selected>Normal</option>
-                <option value="LARGE">Large</option>
-                <option value="SET">Set</option>
+              <label>Gender</label>
+              <select class="product-size" name="productGender">
+                <option value="Gender" selected disabled hidden >Gender</option>
+                <option value="MALE">Male</option>
+                <option value="FEMALE">Female</option>
+               
               </select>
             </div>
 
-            <div class="half-input" id="product-volume" style="display: none">
-              <label>Drink Volume</label>
-              <select class="product-volume" name="productVolume">
-                <option value="0.5">0,5 liters</option>
-                <option value="1" selected>1 liters</option>
-                <option value="1.2">1,2 liters</option>
-                <option value="1.5">1,5 liters</option>
-                <option value="2">2 liters</option>
+
+             <div class="half-input" id="product-collection">
+              <label>Bird Age</label>
+              <select class="product-size" name="productBirdAge">
+                <option value="Age" selected disabled hidden>Age</option>
+                <option value="BABY">Baby</option>
+                <option value="YOUNG">Young</option>
+                <option value="ADULT">Adult</option>
               </select>
             </div>
+
+
           </div>
           <div class="long-input">
             <label>Product Description</label>

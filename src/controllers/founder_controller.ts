@@ -156,7 +156,7 @@ founderController.checkAuthSession = async (req: AdminRequest, res: Response) =>
 
 
 
-founderController.verifyRestaurant = (
+founderController.verifyFounder = (
     req: AdminRequest, res: Response, next: NextFunction
 ) => {
     

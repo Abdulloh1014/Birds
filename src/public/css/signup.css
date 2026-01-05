@@ -247,14 +247,6 @@
 
 
 .signup-btn{
-  /* background: rgb(42, 149, 231);
-  width: 294px;
-  height: 44px;
-  border-radius: 13px;
-  color: #ffffff;
-  cursor: pointer;
-  border: none; */
-
     position: relative;
   margin-top: 25px;
   width: 294px;
@@ -306,14 +298,20 @@
   line-height: 1.5;    
 }
 
-.login-signup p a {
+.signup-top .login-text{
+  margin-top: 33px;
+}
+
+
+.signup-top .login-text p a {
   color: #40a7fb;       
   text-decoration: none; 
   font-weight: 600;      
   transition: color 0.3s ease; 
+    /* margin-top: 25px; */
 }
 
-.login-signup p a:hover {
+.signup-top .login-text p a:hover {
   color: #185ade;       
  
 }

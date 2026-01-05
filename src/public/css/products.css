@@ -22,6 +22,10 @@
   color: #898071;
 }
 
+
+
+
+
 .products-container .navigation-menu {
   position: absolute;
   z-index: 10000;
@@ -191,7 +195,7 @@
 
 .products-container .half-input-frame .half-input {
   position: relative;
-  width: 49%;
+  width: 29%;
   height: auto;
   display: flex;
   flex-direction: column;
