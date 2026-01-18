@@ -31,9 +31,9 @@ export enum ProductCollection {
 }
 
 export enum BirdAge {
-  BABY = "BABY",         // jo‘ja
-  YOUNG = "YOUNG",       // yosh
-  ADULT = "ADULT",       // katta
+  BABY = "Baby",         // jo‘ja
+  YOUNG = "Young",       // yosh
+  ADULT = "Adult",       // katta
 }
 
 export enum Gender {

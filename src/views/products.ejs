@@ -4,13 +4,15 @@
 
 <body>
   <div class="products-container">
+
+
     <div class="navigation-menu">
       <ul class="nav justify-content-center">
-        <li class="nav-item" style="cursor: pointer">
+        <li class="nav-item " style="cursor: pointer">
           <a class="nav-link active" href="/admin/">Home</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" href="/admin/product/all">Menu</a>
+          <a class="nav-link " href="/admin/product/all">Product</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
           <a class="nav-link" href="/admin/user/all">Users</a>
@@ -29,8 +31,33 @@
       <div class="board">
         <div class="dishes-table">
           <span class="new-dish-txt" style="margin-bottom: 30px">
-            RESTAURANT MENU
+            PRODUCT MENU
           </span>
+
+
+
+
+
+         
+
+
+
+
+          <input
+          class="search_input"
+          type="text"
+          id="product-search"
+          placeholder="Search product..."
+          style=" margin-left: 20px; padding: 5px 10px"
+          />
+
+
+              <button class="btn btn-primary" id="process-btn" 
+             onclick="document.getElementById('new-product-form').style.display='block'">
+              New Product
+             </button>
+
+
 
 
           <table class="table table-bordered table-hover">
@@ -55,7 +82,7 @@
               <td><%= value.productCollection %></td>
               <td><%= value.productPrice %></td>
               <td><%= value.productGender %></td>
-              <td><%= value.productBirdAge %></td>
+              <td><%= value.productAge %></td>
               <td><%= value.productLeftCount %></td>
               <td>
                 <select class="spec-select new-product-status" id="<%= value._id %>">
@@ -68,27 +95,22 @@
               <% }) %>
           </table>
 
-
-          <div
-            class="long-input"
-            style="align-items: flex-end; margin-bottom: 25px"
-          >
-            <button class="btn btn-primary" id="process-btn">
-              New Product
-            </button>
-          </div>
-        </div>
+          
 
 
-        <form
+     
+
+        <form id="new-product-form" style="display:none;" action="/admin/product/create" method="POST" enctype="multipart/form-data"
           onsubmit="return validateForm()"
           action="/admin/product/create"
           method="POST"
           class="dish-container"
           enctype="multipart/form-data"
+         
+          
         >
           <div class="long-input" style="display: flex; align-items: center">
-            <span class="new-dish-txt">NEW PRODUCT DETAIL</span>
+            <span class="new-dish-txt">NEW     PRODUCT    DETAIL</span>
           </div>
 
 
@@ -144,7 +166,7 @@
                 <option value="PARROT">Parrot</option>
                 <option value="CANARIES">Canaries</option>
                 <option value="PIGEONS">Pigeons</option>
-                <option value="QUALIS">Qualis</option>
+                <option value="QUAILS">Quails</option>
                 <option value="PHEASANTS">Pheasnts</option>
                 <option value="PEACOCKS">Peacocks</option>
                 <option value="EXOTIC">Exotic</option>
@@ -246,6 +268,8 @@
             </button>
           </div>
         </form>
+
+
       </div>
     </div>
   </div>

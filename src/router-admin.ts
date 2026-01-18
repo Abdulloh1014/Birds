@@ -25,15 +25,21 @@ routerAdmin
   routerAdmin.get("/logout", founderController.logout);
   routerAdmin.get("/check-me", founderController.checkAuthSession);
 
+
+
+  
   /** Product */
 
 routerAdmin.get("/product/all", 
+
   founderController.verifyFounder,    
   productController.getAllProducts);
 
+
+  
+
 routerAdmin.post("/product/create", 
   founderController.verifyFounder, 
-  // uploadProductImage.single('productImage'),
   makeUploader("products").array("productImages", 5,),
   productController.createNewProduct);
 

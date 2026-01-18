@@ -39,7 +39,7 @@ export interface ProductInput {
   productName: string;
   productPrice: number;
   productLeftCount: number;
-  productAge?: BirdAge;
+  productAge: BirdAge;
   productGender: Gender;
   productDesc?: string;
   productImages?: string[];

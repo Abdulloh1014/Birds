@@ -30,7 +30,7 @@
           <a class="nav-link active" href="/admin/">Home</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" href="/admin/product/all">Menu</a>
+          <a class="nav-link" href="/admin/product/all">Product</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
           <a class="nav-link" href="/admin/user/all">Users</a>
@@ -57,6 +57,7 @@
                 <th scope="col">No</th>
                 <th scope="col">Name</th>
                 <th scope="col">Phone</th>
+                <th scope="col">Reg.data</th>
                 <th scope="col">Status</th>
               </tr>
             </thead>
@@ -66,6 +67,15 @@
               <td><%= index+1 %></td>
               <td><%= value.memberNick %></td>
               <td><%= value.memberPhone %></td>
+              <td><%= new Date(value.createdAt).toLocaleString('en-US', {
+                  month: 'short',
+                  day: '2-digit',
+                  year: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  second: '2-digit',
+                  hour12: false
+                  }).replace(',', '') %></td>
               <td style="width: 13%">
                 <select class="spec-select member-status" id="<%= value._id%>">
                   <option value="ACTIVE" <%= value.memberStatus === 'ACTIVE' ? 'selected': '' %> >ACTIVE</option>

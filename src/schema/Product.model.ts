@@ -25,7 +25,7 @@ const productSchema = new Schema({
     type: Number,
     required: true,           // ma'lumotni kiritishini majburiy qiladi   
   },
-  productBirdAge: {
+  productAge: {
     type: String,
     enum: BirdAge,
   },
@@ -55,7 +55,7 @@ const productSchema = new Schema({
 
 
 productSchema.index(
-    { productName: 1, productBirdAge: 1, productGender: 1},
+    { productName: 1, productAge: 1, productGender: 1},
     {unique: true}
 )
 export default mongoose.model("Product",  productSchema);

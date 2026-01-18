@@ -1,6 +1,20 @@
 console.log("Products frontend javascript file");
 
 
+
+document.getElementById('process-btn').onclick = function() {
+  document.getElementById('new-product-form').style.display = 'block';
+  document.getElementById('overlay').style.display = 'block';
+}
+document.getElementById('cancel-btn').onclick = function(e) {
+  e.preventDefault();
+  document.getElementById('new-product-form').style.display = 'none';
+  document.getElementById('overlay').style.display = 'none';
+}
+
+
+
+
 $(function () {
     $(".product-collection").on("change", () => {
         const selectedValue = $(".product-collection").val();
@@ -16,15 +30,26 @@ $(function () {
     });
 
 
-    $("#process-btn").on("click", () => {
-        $(".dish-container").slideToggle(500);
-        $("#process-btn").css("display", "none");    //css() — elementning CSS uslublarini o‘qish yoki o‘zgartirish uchun ishlatiladi.
-    });
+    $("#product-search").on("keyup", function () {
+  const value = $(this).val().toLowerCase();
 
-        $("#cancel-btn").on("click", () => {
-        $(".dish-container").slideToggle(300);
-        $("#process-btn").css("display", "flex");
-    });
+  $("table tbody").each(function () {
+    const productType = $(this).find("td:nth-child(3)").text().toLowerCase();
+    $(this).toggle(productType.includes(value));
+  });
+});
+
+
+
+    // $("#process-btn").on("click", () => {
+    //     $(".dish-container").slideToggle(500);
+    //     $("#process-btn").css("display", "none");  
+    // });
+
+    //     $("#cancel-btn").on("click", () => {
+    //     $(".dish-container").slideToggle(300);
+    //     $("#process-btn").css("display", "flex");
+    // });
 
 
     $(".new-product-status").on("change", async function(e) {
