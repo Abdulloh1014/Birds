@@ -118,7 +118,6 @@ class ProductService {
     id: string,
     input: ProductUpdateInput
     ): Promise<Product> {
-    // string => ObjectID aylantiriladi
     id = shapeIntoMongooseObjectId(id);
     const result = await this.productModel
     .findOneAndUpdate({ _id: id}, input, {new: true} )
@@ -127,6 +126,33 @@ class ProductService {
 
     return result;
   }
+
+
+public async deleteProduct(
+    id: string,
+    
+    ): Promise<Product> {
+    id = shapeIntoMongooseObjectId(id);
+    const result = await this.productModel
+    .findByIdAndDelete(id)
+    .exec();
+    if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.UPDATE_FAILED);
+
+    return result;
+  }
+
+
+  public async updateProduct(id: string, input: any): Promise<Product> {
+    id = shapeIntoMongooseObjectId(id);
+    const result = await this.productModel
+    .findByIdAndUpdate(id, input, {new: true})
+    .exec();
+    if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.UPDATE_FAILED);
+
+    return result;
+  }
+
+
 }
 
 export default ProductService;

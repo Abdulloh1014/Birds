@@ -36,6 +36,17 @@ routerAdmin.get("/product/all",
   productController.getAllProducts);
 
 
+
+routerAdmin.post("/product/delete/:id",
+  founderController.verifyFounder,
+  productController.deleteProduct
+);
+  
+routerAdmin.post("/product/update/:id",
+  founderController.verifyFounder,
+  makeUploader("products").array("productImages", 5),
+  productController.updateProduct
+);
   
 
 routerAdmin.post("/product/create", 

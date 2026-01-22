@@ -121,7 +121,53 @@ productController.updateChosenProduct = async (req: Request, res: Response) => {
         if(err instanceof Errors) res.status(err.code).json(err);
         else res.status(Errors.standart.code).json(Errors.standart)
     }
+
 };
+
+
+    productController.deleteProduct = async (req: Request, res: Response) => {
+       try {
+        const id = req.params.id;
+         await productService.deleteProduct(id);
+           return res.redirect("/admin/product/all");
+       } catch (err) {
+            console.log("Error: deleteProduct", err);
+            if(err instanceof Errors) res.status(err.code).json(err);
+        else res.status(Errors.standart.code).json(Errors.standart)
+       }
+       return res.send(
+      `<script>alert("${Message}"); window.location.replace('/admin/product/all')</script>`
+    );
+       
+    };
+
+
+    productController.updateProduct = async (req: Request, res: Response) => {
+    try {
+        const id = req.params.id;
+        const updateData = req.body;
+
+        if (req.files && (req.files as any).length > 0) {
+            updateData.productImages = (req.files as Express.Multer.File[]).map(f => f.path);
+        } else {
+            delete updateData.productImages; 
+        }
+
+        await productService.updateProduct(id, updateData);
+        return res.redirect("/admin/product/all");
+           
+    } catch (err) {
+        console.log("Error: updateProduct", err);
+        // Bu yerda alert bilan xatoni chiqarish yoki redirect qilish mumkin
+        return res.send(`<script>alert("Update failed!"); window.location.replace('/admin/product/all')</script>`);
+    }
+};
+
+
+
+
+
+
 
 
 

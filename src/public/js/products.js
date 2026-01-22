@@ -16,18 +16,7 @@ document.getElementById('cancel-btn').onclick = function(e) {
 
 
 $(function () {
-    $(".product-collection").on("change", () => {
-        const selectedValue = $(".product-collection").val();
-        if(selectedValue === "DRINK") {
-            $("#product-collection").hide();  //`hide()` elementi **ko‘rinmas qilib yashiradi** (display: none qo‘yadi).
-            $("#product-volume").show();      //`show()` — oldin yashirilgan elementni **yana ko‘rsatadi** (display qiymatini tiklaydi).
-
-        } else {
-             $("#product-volume").hide();        //`hide()` elementi **ko‘rinmas qilib yashiradi** (display: none qo‘yadi).
-            $("#product-collection").show();     //`show()` — oldin yashirilgan elementni **yana ko‘rsatadi** (display qiymatini tiklaydi).
-
-        }
-    });
+   
 
 
     $("#product-search").on("keyup", function () {
@@ -41,15 +30,6 @@ $(function () {
 
 
 
-    // $("#process-btn").on("click", () => {
-    //     $(".dish-container").slideToggle(500);
-    //     $("#process-btn").css("display", "none");  
-    // });
-
-    //     $("#cancel-btn").on("click", () => {
-    //     $(".dish-container").slideToggle(300);
-    //     $("#process-btn").css("display", "flex");
-    // });
 
 
     $(".new-product-status").on("change", async function(e) {
@@ -77,6 +57,74 @@ $(function () {
 
 });
 
+// function validateForm() {
+//     const productName = $(".product-name").val();
+//     const productPrice = $(".product-price").val();
+//     const productLeftCount = $(".product-left-count").val();
+//     const productCollection = $(".product-collection").val();
+//     const productDesc = $(".product-desc").val();
+//     const productStatus = $(".product-status").val();
+   
+
+
+
+//     if (
+//         productName === "" ||
+//         productPrice === "" ||
+//         productLeftCount === "" ||
+//         productCollection === "" ||
+//         productDesc === "" ||
+//         productStatus === ""
+    
+//     ) {
+//         alert("Please insert all detailes!");
+//         return false;
+//     } else return true;
+// }
+
+
+function openEditForm(productData) {
+    const product = JSON.parse(productData);
+    const form = document.getElementById('new-product-form');
+    
+    // Formani ko'rsatish
+    form.style.display = 'block';
+    
+    // Action-ni update API-ga o'zgartirish
+    form.action = `/admin/product/update/${product._id}`;
+    
+    // Tugma matnini o'zgartirish
+    document.getElementById('create-btn').innerText = "Update Product";
+    document.querySelector('.new-dish-txt').innerText = "UPDATE PRODUCT DETAIL";
+
+    // Inputlarni mahsulot ma'lumotlari bilan to'ldirish
+    form.querySelector('.product-name').value = product.productName;
+    form.querySelector('.product-price').value = product.productPrice;
+    form.querySelector('.product-left-count').value = product.productLeftCount;
+    form.querySelector('.product-collection').value = product.productCollection;
+    form.querySelector('.product-size[name="productGender"]').value = product.productGender;
+    form.querySelector('.product-size[name="productAge"]').value = product.productAge;
+    form.querySelector('.product-desc').value = product.productDesc;
+
+    // Rasmlar majburiy emas (Update-da rasmni o'zgartirmasligi ham mumkin)
+    form.querySelector('.image-one').required = false;
+
+    // Sahifani tepaga surish (formani ko'rish uchun)
+    form.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Cancel bosilganda formani qayta tiklash
+document.getElementById('cancel-btn').addEventListener('click', (e) => {
+    e.preventDefault();
+    const form = document.getElementById('new-product-form');
+    form.style.display = 'none';
+    form.reset();
+    form.action = "/admin/product/create";
+    document.getElementById('create-btn').innerText = "Create";
+});
+
+
+
 function validateForm() {
     const productName = $(".product-name").val();
     const productPrice = $(".product-price").val();
@@ -85,8 +133,7 @@ function validateForm() {
     const productDesc = $(".product-desc").val();
     const productStatus = $(".product-status").val();
    
-
-
+    const productAge = $(".product-size[name='productAge']").val(); 
 
     if (
         productName === "" ||
@@ -94,13 +141,17 @@ function validateForm() {
         productLeftCount === "" ||
         productCollection === "" ||
         productDesc === "" ||
-        productStatus === ""
-    
+        productStatus === "" ||
+        !productAge
     ) {
-        alert("Please insert all detailes!");
+        alert("Please insert all details!");
         return false;
     } else return true;
 }
+
+
+
+
 
 function previewFileHandler(input, order) {
     const imgClassName = input.className;

@@ -9,10 +9,10 @@
     <div class="navigation-menu">
       <ul class="nav justify-content-center">
         <li class="nav-item " style="cursor: pointer">
-          <a class="nav-link active" href="/admin/">Home</a>
+          <a class="nav-link" href="/admin/">Home</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link " href="/admin/product/all">Product</a>
+          <a class="nav-link active"  href="/admin/product/all">Product</a>
         </li>
         <li class="nav-item" style="cursor: pointer">
           <a class="nav-link" href="/admin/user/all">Users</a>
@@ -34,15 +34,6 @@
             PRODUCT MENU
           </span>
 
-
-
-
-
-         
-
-
-
-
           <input
           class="search_input"
           type="text"
@@ -52,10 +43,16 @@
           />
 
 
-              <button class="btn btn-primary" id="process-btn" 
-             onclick="document.getElementById('new-product-form').style.display='block'">
-              New Product
-             </button>
+       
+
+             <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 970px;">
+              <span id="productCount" class="product-count-badge">All product:  <%= products.length %></span>
+  
+                 <button class="btn btn-primary" id="process-btn" 
+                onclick="document.getElementById('new-product-form').style.display='block'">
+                  New Product
+                    </button>
+               </div>
 
 
 
@@ -68,8 +65,10 @@
                 <th scope="col">Product Type</th>
                 <th scope="col">Product Price</th>
                 <th scope="col">Product Gender</th>
-                <th scope="col">Product Bird Age</th>
-                <th scope="col">Product Left Count</th>
+                <th scope="col">Product Age</th>
+                <th scope="col">Left Count</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
                 <th scope="col">Status</th>
               </tr>
             </thead>
@@ -84,6 +83,30 @@
               <td><%= value.productGender %></td>
               <td><%= value.productAge %></td>
               <td><%= value.productLeftCount %></td>
+
+              <td>
+  <button 
+    class="btn-edit" 
+    style="border:none; background:none; cursor:pointer"
+    onclick="openEditForm('<%= JSON.stringify(value) %>')"
+  >
+    📝
+  </button>
+</td>
+
+
+              <td><form
+    action="/admin/product/delete/<%= value._id %>"
+    method="POST"
+    onsubmit="return confirm('Are you sure you want to permanently delete this product?')"
+    style="display:inline"
+  >
+    <button onfocus="this.blur();"  type="submit" style="border:none;background:none;cursor:pointer">
+      🗑️
+    </button>
+  </form>
+</td>
+
               <td>
                 <select class="spec-select new-product-status" id="<%= value._id %>">
                   <option value="PAUSE" <%= value.productStatus === 'PAUSE' ? 'selected': '' %> >PAUSE</option>
@@ -179,8 +202,8 @@
               <label>Gender</label>
               <select class="product-size" name="productGender">
                 <option value="Gender" selected disabled hidden >Gender</option>
-                <option value="MALE">Male</option>
-                <option value="FEMALE">Female</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
                
               </select>
             </div>
@@ -188,12 +211,24 @@
 
              <div class="half-input" id="product-collection">
               <label>Bird Age</label>
-              <select class="product-size" name="productBirdAge">
+
+
+              <!-- <select class="product-size" name="productAge">
                 <option value="Age" selected disabled hidden>Age</option>
                 <option value="BABY">Baby</option>
                 <option value="YOUNG">Young</option>
                 <option value="ADULT">Adult</option>
-              </select>
+              </select> -->
+
+              <select class="product-size" name="productAge">
+  <option value="Age" selected disabled hidden>Age</option>
+  <option value="Baby">Baby</option>
+  <option value="Young">Young</option>
+  <option value="Adult">Adult</option>
+</select>
+
+
+
             </div>
 
 
