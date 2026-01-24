@@ -38,11 +38,11 @@ const memberSchema = new Schema ({
     required: true
   },
 
-  memberAddres: {
+  memberAddress: {
     type: String
   },
 
-    memberDisc: {
+    memberDesc: {
     type: String
   },
 

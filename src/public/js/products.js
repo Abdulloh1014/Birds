@@ -102,8 +102,8 @@ function openEditForm(productData) {
     form.querySelector('.product-price').value = product.productPrice;
     form.querySelector('.product-left-count').value = product.productLeftCount;
     form.querySelector('.product-collection').value = product.productCollection;
-    form.querySelector('.product-size[name="productGender"]').value = product.productGender;
-    form.querySelector('.product-size[name="productAge"]').value = product.productAge;
+    // form.querySelector('.product-size[name="productGender"]').value = product.productGender;
+    // form.querySelector('.product-size[name="productAge"]').value = product.productAge;
     form.querySelector('.product-desc').value = product.productDesc;
 
     // Rasmlar majburiy emas (Update-da rasmni o'zgartirmasligi ham mumkin)
@@ -132,8 +132,8 @@ function validateForm() {
     const productCollection = $(".product-collection").val();
     const productDesc = $(".product-desc").val();
     const productStatus = $(".product-status").val();
+    // const productAge = $(".product-size[name='productAge']").val(); 
    
-    const productAge = $(".product-size[name='productAge']").val(); 
 
     if (
         productName === "" ||
