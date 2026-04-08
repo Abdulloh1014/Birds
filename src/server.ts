@@ -2,7 +2,9 @@
 
 
 import dotenv from 'dotenv';      // dotenv paketini chaqiradi (ya’ni loyihada .env fayl bilan ishlash imkonini beradi).
-dotenv.config();   // .env fayldagi o‘zgaruvchilarni process.env ga yuklaydi. bu orqali maxfiy ma’lumotlarni kod ichiga yozmasdan ishlatiladi.
+dotenv.config({
+  path: process.env.NODE_ENV === "production" ? ".env.production" : ".env",
+});   // .env fayldagi o‘zgaruvchilarni process.env ga yuklaydi. bu orqali maxfiy ma’lumotlarni kod ichiga yozmasdan ishlatiladi.
 
 import mongoose from "mongoose";
 import server from "./app";   // app ni ya'ni express() ni chaqiryabmiz
