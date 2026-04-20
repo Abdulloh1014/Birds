@@ -1,24 +1,36 @@
+
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
+    "module": "CommonJS",
     "moduleResolution": "node",
+    "baseUrl": "./",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "lib": ["ES2020"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["node_modules/@types"],
     "paths": {
       "*": ["node_modules/*"]
     }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
 
+
+
 // {
 //   "compilerOptions": {
+//     "skipLibCheck": true,
+//     "strict": false,
+//     "esModuleInterop": true,
 //     "target": "ES2020",
 //     "module": "commonjs",
 //     "outDir": "./dist",
@@ -27,6 +39,7 @@
 //     "skipLibCheck": true,
 //     "forceConsistentCasingInFileNames": true,
 //     "baseUrl": "./",
+//     "moduleResolution": "node",
 //     "paths": {
 //       "*": ["node_modules/*"]
 //     }
@@ -35,22 +48,3 @@
 //   "exclude": ["node_modules"]
 // }
 
-
-
-// {
-//   "compilerOptions": {
-//     "target": "ES2020",
-//     "module": "commonjs",
-//     "outDir": "./dist",
-//     "strict": true,
-//     "esModuleInterop": true,
-//     "skipLibCheck": true,
-//     "forceConsistentCasingInFileNames": true,
-//     "baseUrl": "./",
-//     "paths": {
-//       "*": ["node_modules/*"]
-//     }
-//   },
-//   "include": ["src/**/*.ts"],
-//   "exclude": ["node_modules"]
-// }

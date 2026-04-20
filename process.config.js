@@ -1,6 +1,6 @@
 module.exports = {
     apps : [{
-        name: 'BRIDS',
+        name: 'BIRDS',
         cwd: "./",
         script: './dist/server.js',
         watch: false,

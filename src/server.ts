@@ -9,6 +9,7 @@ dotenv.config({
 import mongoose from "mongoose";
 import server from "./app";   // app ni ya'ni express() ni chaqiryabmiz
 
+mongoose.set('strictQuery', true);
 mongoose     // mongoDB ga ulab beradigon package
   .connect(process.env.MONGO_URL as string, {})      // .env faylga yozilgan MongoDB manzilini olib beryabti
                                                 

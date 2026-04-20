@@ -15,7 +15,7 @@ founderController.goHome = (req: Request, res: Response) => {
         console.log("goHome");
           // Home page
             
-             res.render("Home");
+             res.render("home");
         // send() || json() || redirect() || end() || render()
     } catch(err) {
         console.log("Error, goHome", err);
@@ -26,7 +26,7 @@ founderController.goHome = (req: Request, res: Response) => {
 founderController.getSignup = (req: Request, res: Response) => {
     try {
         console.log("getSignup");
-        res.render("Signup");
+        res.render("signup");
        
     } catch(err) {
         console.log("Error, getSignup", err);
@@ -37,7 +37,7 @@ founderController.getSignup = (req: Request, res: Response) => {
 founderController.getLogin = (req: Request, res: Response) => {
     try {
         console.log("getLogin");
-        res.render("Login");
+        res.render("login");
         
     } catch(err) {
         console.log("Error, getLogin", err);
